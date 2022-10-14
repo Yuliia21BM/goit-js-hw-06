@@ -16,12 +16,18 @@ const images = [
 function makeGalery(setImages = []) {
   
   const ulRef = document.querySelector('ul.gallery');
+  ulRef.classList.add('list')
 
-  const createLi = setImages.forEach(img => {
+  setImages.map(img => {
     const liRef = document.createElement('li');
     const imgRef = document.createElement('img');
-    console.log(imgRef)
+    imgRef.alt = img.alt;
+    imgRef.src = img.url;
+    imgRef.classList.add('img');
+    liRef.append(imgRef);
+    return ulRef.insertAdjacentElement("beforeend", liRef)
   })
+  
 }
 
 makeGalery(images);

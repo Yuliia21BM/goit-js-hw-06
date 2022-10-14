@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
+    <style>
+      .list {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        list-style: none;
+      }
+      .img {
+        width: 370px;
+        scale: 1;
+        transition: scale 250ms linear;
+      }
+      .img:hover,
+      .img:focus {
+        scale: 1.1;
+      }
+    </style>
     <p><a href="index.html">Go back</a></p>
 
     <ul class="gallery"></ul>
