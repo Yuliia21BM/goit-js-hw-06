@@ -9,13 +9,14 @@ const ingredients = [
 
 function createListItems(elementNames = []){
   const ulRef = document.querySelector('ul#ingredients');
+  const items = [];
   elementNames.forEach(name => {
     const liRef = document.createElement("li");
     liRef.textContent = name;
     liRef.classList.add('item');
-    ulRef.append(liRef);
-    return ulRef;
+    items.push(liRef)
   });
+  ulRef.append(...items);
 }
 
 createListItems(ingredients);

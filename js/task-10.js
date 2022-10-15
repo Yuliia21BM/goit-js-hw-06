@@ -15,6 +15,7 @@ destroyBtn.addEventListener('click', destroyBoxes)
 function createBoxes() {
   const amountValue = inputValue.value;
   const boxCounterSize = counterSize();
+  const boxWithElement = [];
 
   for (let box = 0; box < amountValue; box += 1) {
     const boxElement = document.createElement('div');
@@ -22,8 +23,9 @@ function createBoxes() {
     boxElement.style.height = boxElement.style.width; 
     boxElement.style.backgroundColor = getRandomHexColor();
     boxElement.style.border = "1px solid #000000";
-    boxesRef.append(boxElement);
+    boxWithElement.push(boxElement)
   }
+  boxesRef.append(...boxWithElement);
 }
 
 function destroyBoxes() {
