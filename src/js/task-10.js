@@ -1,16 +1,12 @@
 const inputValue = document.querySelector('input');
-console.log(inputValue);
 const createBtn = document.querySelector('[data-create]');
-console.log(createBtn);
 const destroyBtn = document.querySelector('[data-destroy]');
-console.log(destroyBtn);
 const boxesRef = document.querySelector('#boxes');
 boxesRef.classList.add('boxes');
 boxesRef.style.display = "flex";
 boxesRef.style['flex-wrap'] = "wrap";
 boxesRef.style.gap = "20px";
 boxesRef.style.margin = "20px";
-console.log(boxesRef);
 
 createBtn.addEventListener('click', createBoxes);
 destroyBtn.addEventListener('click', destroyBoxes)
@@ -25,6 +21,7 @@ function createBoxes() {
     boxElement.style.width = boxCounterSize() + "px"; 
     boxElement.style.height = boxElement.style.width; 
     boxElement.style.backgroundColor = getRandomHexColor();
+    boxElement.style.border = "1px solid #000000";
     boxesRef.append(boxElement);
   }
 }
