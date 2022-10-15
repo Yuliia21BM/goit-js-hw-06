@@ -13,21 +13,27 @@ const images = [
   },
 ];
 
-function makeGalery(setImages = []) {
-  
-  const ulRef = document.querySelector('ul.gallery');
-  ulRef.classList.add('list')
+// function makeGalery(setImages = []) {
 
-  setImages.map(img => {
-    const liRef = document.createElement('li');
-    const imgRef = document.createElement('img');
-    imgRef.alt = img.alt;
-    imgRef.src = img.url;
-    imgRef.classList.add('img');
-    liRef.append(imgRef);
-    return ulRef.insertAdjacentElement("beforeend", liRef)
-  })
-  
-}
+//   const ulRef = document.querySelector('ul.gallery');
+//   ulRef.classList.add('list')
 
-makeGalery(images);
+//   setImages.map(img => {
+//     const liRef = document.createElement('li');
+//     const imgRef = document.createElement('img');
+//     imgRef.alt = img.alt;
+//     imgRef.src = img.url;
+//     imgRef.classList.add('img');
+//     liRef.append(imgRef);
+//     return ulRef.insertAdjacentElement("beforeend", liRef)
+//   })
+
+// }
+
+// makeGalery(images);
+
+const ulRef = document.querySelector('ul.gallery');
+ulRef.classList.add('list')
+
+const imagesRef = images.map(img => `<li><img class="img"alt="${img.alt}"src="${img.url}"/></li>`).join("");
+ulRef.insertAdjacentHTML("beforeend", imagesRef);
