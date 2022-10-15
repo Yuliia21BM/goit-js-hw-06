@@ -4,22 +4,44 @@ const createBtn = document.querySelector('[data-create]');
 console.log(createBtn);
 const destroyBtn = document.querySelector('[data-destroy]');
 console.log(destroyBtn);
+const boxesRef = document.querySelector('#boxes');
+boxesRef.classList.add('boxes');
+boxesRef.style.display = "flex";
+boxesRef.style['flex-wrap'] = "wrap";
+boxesRef.style.gap = "20px";
+boxesRef.style.margin = "20px";
+console.log(boxesRef);
 
-// одне число не ітерабельне треба його спочатку розділити від 1 і до введеного
-createBtn.addEventListener('click', createBoxes(inputValue.value));
-// destroyBtn.addEventListener('click', destroyBoxes)
+createBtn.addEventListener('click', createBoxes);
+destroyBtn.addEventListener('click', destroyBoxes)
 
 
-function createBoxes(amount) {
-  amount.map(box => {
+function createBoxes() {
+  const amountValue = inputValue.value;
+  const boxCounterSize = counterSize();
+
+  for (let box = 0; box < amountValue; box += 1) {
     const boxElement = document.createElement('div');
-    boxElement.style.width = 30 + "px"; 
-    boxElement.style.height = 30 + "px"; 
+    boxElement.style.width = boxCounterSize() + "px"; 
+    boxElement.style.height = boxElement.style.width; 
     boxElement.style.backgroundColor = getRandomHexColor();
-  })
+    boxesRef.append(boxElement);
+  }
 }
 
-// function destroyBoxes()
+function destroyBoxes() {
+  boxesRef.innerHTML = "";
+  inputValue.value = "";
+}
+
+function counterSize() {
+  let count = 20;
+  return function () {
+    count += 10;
+    return count;
+  }
+
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
