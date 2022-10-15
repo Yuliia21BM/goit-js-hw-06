@@ -9,7 +9,7 @@ function onInputBlur(event) {
         inputRef.classList.add('invalid');
 }
 
-function onInputFocus() {
-    // event.currentTarget.value = "";
+function onInputFocus(event) {
+    event.currentTarget.value = "";
     inputRef.classList.remove('valid') || inputRef.classList.remove('invalid');
 }
